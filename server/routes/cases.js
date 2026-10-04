@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { asyncHandler as h } from '../middleware/errors.js';
+import { listCases, getCase, getSuspects, getClues, getEvidence } from '../controllers/caseController.js';
+const r = Router();
+r.get('/', h(listCases));
+r.get('/:caseId', h(getCase));
+r.get('/:caseId/suspects', h(getSuspects));
+r.get('/:caseId/clues', h(getClues));
+r.get('/:caseId/evidence', h(getEvidence));
+export default r;
